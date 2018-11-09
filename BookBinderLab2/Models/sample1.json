@@ -1,0 +1,196 @@
+{
+    "volumes": [
+        {
+            "publisherName": "Marble Entertainment",
+            "seriesName": "Limo Man",
+            "era": 1950,
+            "volumeNumber": 1,
+            "firstWorkNumber": 1,
+            "currentWorkNumber": 10,
+            "kind": "series",
+            "works": [
+                {
+                    "issueNumber": 1,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 1,
+                    "variantLetter": "a",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 1,
+                    "variantLetter": "b",
+                    "coverImage": "",
+                    "isOwned": false
+                },
+                {
+                    "issueNumber": 5,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": false
+                },
+                {
+                    "issueNumber": 8,
+                    "variantLetter": "b",
+                    "coverImage": "",
+                    "isOwned": true
+                }
+            ]
+        },
+        {
+            "publisherName": "Marble Entertainment",
+            "seriesName": "Atomic Woman",
+            "era": 1990,
+            "volumeNumber": 1,
+            "firstWorkNumber": 5,
+            "currentWorkNumber": 15,
+            "kind": "mini-series",
+            "works": [
+                {
+                    "issueNumber": 10,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 11,
+                    "variantLetter": "a",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 12,
+                    "variantLetter": "b",
+                    "coverImage": "",
+                    "isOwned": false
+                },
+                {
+                    "issueNumber": 13,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": false
+                },
+                {
+                    "issueNumber": 13,
+                    "variantLetter": "b",
+                    "coverImage": "",
+                    "isOwned": true
+                }
+            ]
+        },
+        {
+            "publisherName": "Marble Entertainment",
+            "seriesName": "Atomic Woman",
+            "era": 2010,
+            "volumeNumber": 2,
+            "firstWorkNumber": 1,
+            "currentWorkNumber": 9,
+            "kind": "series",
+            "works": [
+                {
+                    "issueNumber": 1,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 1,
+                    "variantLetter": "a",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 2,
+                    "variantLetter": "b",
+                    "coverImage": "",
+                    "isOwned": false
+                },
+                {
+                    "issueNumber": 8,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": false
+                },
+                {
+                    "issueNumber": 9,
+                    "variantLetter": "b",
+                    "coverImage": "",
+                    "isOwned": true
+                }
+            ]
+        },
+        {
+            "publisherName": "EKK Comics",
+            "seriesName": "Massive Cat Attack",
+            "era": 2011,
+            "volumeNumber": 1,
+            "firstWorkNumber": 1,
+            "currentWorkNumber": 1,
+            "kind": "one-short",
+            "works": [
+                {
+                    "issueNumber": 1,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 1,
+                    "variantLetter": "a",
+                    "coverImage": "",
+                    "isOwned": true
+                }
+            ]
+        },
+        {
+            "publisherName": "EKK Comics",
+            "seriesName": "Darling Dog",
+            "era": 1942,
+            "volumeNumber": 1,
+            "firstWorkNumber": 1,
+            "currentWorkNumber": 6,
+            "kind": "annual",
+            "works": [
+                {
+                    "issueNumber": 4,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 6,
+                    "variantLetter": "a",
+                    "coverImage": "",
+                    "isOwned": true
+                }
+            ]
+        },
+        {
+            "publisherName": "EKK Comics",
+            "seriesName": "Darling Dog",
+            "era": 1952,
+            "volumeNumber": 2,
+            "firstWorkNumber": 7,
+            "currentWorkNumber": 12,
+            "kind": "annual",
+            "works": [
+                {
+                    "issueNumber": 9,
+                    "variantLetter": "",
+                    "coverImage": "",
+                    "isOwned": true
+                },
+                {
+                    "issueNumber": 11,
+                    "variantLetter": "a",
+                    "coverImage": "",
+                    "isOwned": true
+                }
+            ]
+        }
+    ]
+}

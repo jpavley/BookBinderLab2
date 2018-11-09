@@ -13,6 +13,7 @@
 		484EABAC21955A1F00D822FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 484EABAB21955A1F00D822FD /* Assets.xcassets */; };
 		484EABAF21955A1F00D822FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 484EABAD21955A1F00D822FD /* LaunchScreen.storyboard */; };
 		484EABBA21955A1F00D822FD /* BookBinderLab2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484EABB921955A1F00D822FD /* BookBinderLab2Tests.swift */; };
+		484EABC621955A4C00D822FD /* sample1.json in Resources */ = {isa = PBXBuildFile; fileRef = 484EABC521955A4C00D822FD /* sample1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		484EABB521955A1F00D822FD /* BookBinderLab2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookBinderLab2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		484EABB921955A1F00D822FD /* BookBinderLab2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBinderLab2Tests.swift; sourceTree = "<group>"; };
 		484EABBB21955A1F00D822FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		484EABC521955A4C00D822FD /* sample1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample1.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		484EABA321955A1D00D822FD /* BookBinderLab2 */ = {
 			isa = PBXGroup;
 			children = (
+				484EABC421955A2900D822FD /* Models */,
 				484EABA421955A1D00D822FD /* AppDelegate.swift */,
 				484EABA621955A1D00D822FD /* ViewController.swift */,
 				484EABA821955A1D00D822FD /* Main.storyboard */,
@@ -94,6 +97,14 @@
 				484EABBB21955A1F00D822FD /* Info.plist */,
 			);
 			path = BookBinderLab2Tests;
+			sourceTree = "<group>";
+		};
+		484EABC421955A2900D822FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				484EABC521955A4C00D822FD /* sample1.json */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 				484EABAF21955A1F00D822FD /* LaunchScreen.storyboard in Resources */,
 				484EABAC21955A1F00D822FD /* Assets.xcassets in Resources */,
 				484EABAA21955A1D00D822FD /* Main.storyboard in Resources */,
+				484EABC621955A4C00D822FD /* sample1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

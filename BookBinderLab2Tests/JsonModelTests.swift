@@ -266,4 +266,11 @@ class JsonModelTests: XCTestCase {
         XCTAssertEqual(collectedWorks.first!, "1")
         XCTAssertEqual(collectedWorks.last!, "8b")
     }
+    
+    func testCompleteWorks() {
+        let completeWorks = testModel2.completeWorks
+        XCTAssertEqual(completeWorks.count, 13)
+        XCTAssertEqual(completeWorks, ["1", "1a", "1b", "2", "3", "4", "5", "6", "7", "8", "8b", "9", "10"])
+        print(completeWorks)
+    }
 }

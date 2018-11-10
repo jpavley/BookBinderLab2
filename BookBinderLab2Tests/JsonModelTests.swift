@@ -42,6 +42,15 @@ class JsonModelTests: XCTestCase {
         testModel1 = JsonModel(volumes: [testVolume1, testVolume2, testVolume3], selectedVolumeIndex: 0)
     }
     
+    
+    
+    /// Creates a JsonModel from a JSON resouce in the application bundle.
+    ///
+    /// - Parameters:
+    ///   - forResource: Name of the JSON file.
+    ///   - ofType: Type of the JSON file.
+    ///
+    /// - Returns: Nil or a JsonModel object.
     private func initFromBundle(forResource: String, ofType: String) -> JsonModel? {
         if let path = Bundle.main.path(forResource: forResource, ofType: ofType) {
             do {
@@ -66,6 +75,9 @@ class JsonModelTests: XCTestCase {
         }
     }
     
+    /// Deletes data associated with a key from local phone storage.
+    ///
+    /// - Parameter key: Name of the key assocated with the data.
     private func deleteUserDefaults(for key: String) {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: key)
@@ -73,6 +85,12 @@ class JsonModelTests: XCTestCase {
         defaults.synchronize()
     }
     
+    
+    /// Saves a JsonModel to local phone storage associated with a key.
+    ///
+    /// - Parameters:
+    ///   - key: Name of the key assocated with the data.
+    ///   - model: The JSON object to save.
     private func saveUserDefaults(for key: String, with model: JsonModel) {
         let defaults = UserDefaults.standard
         
@@ -87,6 +105,10 @@ class JsonModelTests: XCTestCase {
         }
     }
     
+    /// Reads data from local phone storage associated with a key and returns a JsonModel object.
+    ///
+    /// - Parameter key: Name of the key assocated with the data.
+    /// - Returns: Nil or the JSON object read from storage.
     private func readUserDefaults(for key: String) -> JsonModel? {
         let defaults = UserDefaults.standard
         
@@ -229,5 +251,13 @@ class JsonModelTests: XCTestCase {
         // see if loaded data refects changes
         XCTAssertEqual(testModel2.selectedVolume.seriesName, "Horrible Ugly Misrable Dog")
         XCTAssertEqual(testModel2.selectedVolume.era, 1992)
+    }
+    
+    func testPublishedWorks() {
+        let publishedWorks = testModel2.publishedWorks
+        XCTAssertEqual(publishedWorks.count, 10)
+        XCTAssertEqual(publishedWorks.first!, "1")
+        XCTAssertEqual(publishedWorks.last!, "10")
+
     }
 }

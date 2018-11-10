@@ -79,4 +79,13 @@ extension JsonModel {
     var selectedWorksCount: Int {
         return selectedVolume.works.count
     }
+    
+    var publishedWorks: [String] {
+        var result = [String]()
+        for i in selectedVolume.firstWorkNumber...selectedVolume.currentWorkNumber {
+            result.append("\(i)")
+            // TODO: Add variant works
+        }
+        return result
+    }
 }

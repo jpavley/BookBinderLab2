@@ -129,7 +129,7 @@ class JsonModelTests: XCTestCase {
         let imageList = ["", "dd_v2_11_a"]
         let ownList = [true, false]
         
-        for i in 0..<testModel2.selectedVolume.works.count {
+        for i in 0..<testModel2.selectedWorksCount {
             testModel2.selectedVolume.selectedWorkIndex = i
             
             XCTAssertEqual(testModel2.selectedWork.issueNumber, issueList[i])

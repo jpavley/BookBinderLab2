@@ -75,4 +75,8 @@ extension JsonModel {
     var selectedWork: JsonVolume.JsonWork {
         return selectedVolume.works[selectedVolume.selectedWorkIndex]
     }
+    
+    var selectedWorksCount: Int {
+        return selectedVolume.works.count
+    }
 }

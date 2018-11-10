@@ -1,4 +1,5 @@
 {
+    "selectedVolumeIndex": 0,
     "volumes": [
         {
             "publisherName": "Marble Entertainment",
@@ -8,6 +9,7 @@
             "firstWorkNumber": 1,
             "currentWorkNumber": 10,
             "kind": "series",
+            "selectedWorkIndex": 0,
             "works": [
                 {
                     "issueNumber": 1,
@@ -49,6 +51,7 @@
             "firstWorkNumber": 5,
             "currentWorkNumber": 15,
             "kind": "mini-series",
+            "selectedWorkIndex": 0,
             "works": [
                 {
                     "issueNumber": 10,
@@ -90,6 +93,7 @@
             "firstWorkNumber": 1,
             "currentWorkNumber": 9,
             "kind": "series",
+            "selectedWorkIndex": 0,
             "works": [
                 {
                     "issueNumber": 1,
@@ -131,6 +135,7 @@
             "firstWorkNumber": 1,
             "currentWorkNumber": 1,
             "kind": "one-short",
+            "selectedWorkIndex": 0,
             "works": [
                 {
                     "issueNumber": 1,
@@ -154,6 +159,7 @@
             "firstWorkNumber": 1,
             "currentWorkNumber": 6,
             "kind": "annual",
+            "selectedWorkIndex": 0,
             "works": [
                 {
                     "issueNumber": 4,
@@ -177,6 +183,7 @@
             "firstWorkNumber": 7,
             "currentWorkNumber": 12,
             "kind": "annual",
+            "selectedWorkIndex": 0,
             "works": [
                 {
                     "issueNumber": 9,
@@ -187,8 +194,8 @@
                 {
                     "issueNumber": 11,
                     "variantLetter": "a",
-                    "coverImage": "",
-                    "isOwned": true
+                    "coverImage": "dd_v2_11_a",
+                    "isOwned": false
                 }
             ]
         }

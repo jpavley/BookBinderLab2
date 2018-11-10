@@ -26,56 +26,99 @@ class JsonModelTests: XCTestCase {
     
     var testModel2: JsonModel!
     
+    // ser defaults
+    
+    let defaultsKey = "savedJsonModel"
+    
     private func initFromProperties() {
         testWork1 = JsonModel.JsonVolume.JsonWork(issueNumber: 1, variantLetter: "a", coverImage: "x", isOwned: true)
         testWork2 = JsonModel.JsonVolume.JsonWork(issueNumber: 2, variantLetter: "b", coverImage: "y", isOwned: false)
         testWork3 = JsonModel.JsonVolume.JsonWork(issueNumber: 3, variantLetter: "c", coverImage: "z", isOwned: true)
         
         testVolume1 = JsonModel.JsonVolume(publisherName: "a", seriesName: "x", era: 1, volumeNumber: 4, firstWorkNumber: 1, currentWorkNumber: 5, kind: "series", works: [testWork1, testWork2, testWork3], selectedWorkIndex: 0)
-        
         testVolume2 = JsonModel.JsonVolume(publisherName: "b", seriesName: "y", era: 2, volumeNumber: 5, firstWorkNumber: 1, currentWorkNumber: 10, kind: "one-shot", works: [testWork1, testWork2, testWork3], selectedWorkIndex: 0)
-        
         testVolume3 = JsonModel.JsonVolume(publisherName: "c", seriesName: "z", era: 3, volumeNumber: 6, firstWorkNumber: 1, currentWorkNumber: 15, kind: "annual", works: [testWork1, testWork2, testWork3], selectedWorkIndex: 0)
-        
         
         testModel1 = JsonModel(volumes: [testVolume1, testVolume2, testVolume3], selectedVolumeIndex: 0)
     }
     
-    private func initFromBundle() {
-        if let path = Bundle.main.path(forResource: "sample1", ofType: "json") {
+    private func initFromBundle(forResource: String, ofType: String) -> JsonModel? {
+        if let path = Bundle.main.path(forResource: forResource, ofType: ofType) {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                XCTAssertNotNil(data)
                 
                 do {
                     let decoder = JSONDecoder()
-                    testModel2 = try decoder.decode(JsonModel.self, from: data)
+                    return try decoder.decode(JsonModel.self, from: data)
                     
-                    // succeeded -> data loaded and decoded!
                 } catch {
-                    // failed -> can't decode!
-                    XCTAssertNil(error)
                     print(error)
+                    return nil
                 }
                 
             } catch {
-                // failed -> can't load data!
-                XCTAssertNil(error)
                 print(error)
+                return nil
             }
+        } else {
+            print("no resource named \(forResource) of type \(ofType) in path")
+            return nil
         }
     }
+    
+    private func deleteUserDefaults(for key: String) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: key)
+        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        defaults.synchronize()
+    }
+    
+    private func saveUserDefaults(for key: String, with model: JsonModel) {
+        let defaults = UserDefaults.standard
+        
+        do {
+            let encoder = JSONEncoder()
+            let encoded = try encoder.encode(model)
 
+            defaults.set(encoded, forKey: key)
+
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func readUserDefaults(for key: String) -> JsonModel? {
+        let defaults = UserDefaults.standard
+        
+        do {
+            
+            if let savedJsonModel = defaults.object(forKey: key) as? Data {
+                
+                let decoder = JSONDecoder()
+                return try decoder.decode(JsonModel.self, from: savedJsonModel)
+
+            } else {
+                print("no data for key in user defaults")
+                return nil
+            }
+            
+        } catch {
+            print(error)
+            return nil
+        }
+
+    }
 
     override func setUp() {
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
         initFromProperties()
-        initFromBundle()
+        testModel2 = initFromBundle(forResource: "sample1", ofType: "json")
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        deleteUserDefaults(for: defaultsKey)
     }
 
     func testInitFromPropterties() {
@@ -149,5 +192,42 @@ class JsonModelTests: XCTestCase {
         XCTAssertEqual(testModel1.selectedWork.issueNumber, 1)
         XCTAssertEqual(testModel1.selectedWork.variantLetter, "a")
         XCTAssertEqual(testModel1.selectedWork.isOwned, true)
+    }
+    
+    func testSaveAndLoadUserDefaults() {
+        let defaults = UserDefaults.standard
+        
+        // no old data in user defaults
+        let oldSavedData = defaults.object(forKey: defaultsKey)
+        XCTAssertNil(oldSavedData)
+        
+        // orignal data is in model
+        testModel2.selectedVolumeIndex = 5
+        XCTAssertEqual(testModel2.selectedVolume.seriesName, "Darling Dog")
+        XCTAssertEqual(testModel2.selectedVolume.era, 1952)
+
+        saveUserDefaults(for: defaultsKey, with: testModel2)
+        
+        // something was saved
+        let newSavedData = defaults.object(forKey: defaultsKey)
+        XCTAssertNotNil(newSavedData)
+        
+        testModel2 = readUserDefaults(for: defaultsKey)
+        // make user loaded data is same as saved data
+        testModel2.selectedVolumeIndex = 5
+        XCTAssertEqual(testModel2.selectedVolume.seriesName, "Darling Dog")
+        XCTAssertEqual(testModel2.selectedVolume.era, 1952)
+
+        
+        // make changes
+        testModel2.selectedVolume.seriesName = "Horrible Ugly Misrable Dog"
+        testModel2.selectedVolume.era = 1992
+        
+        saveUserDefaults(for: defaultsKey, with: testModel2)
+        testModel2 = readUserDefaults(for: defaultsKey)
+        
+        // see if loaded data refects changes
+        XCTAssertEqual(testModel2.selectedVolume.seriesName, "Horrible Ugly Misrable Dog")
+        XCTAssertEqual(testModel2.selectedVolume.era, 1992)
     }
 }

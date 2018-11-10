@@ -86,6 +86,17 @@ extension JsonModel {
             result.append("\(i)")
             // TODO: Add variant works
         }
+        
+        return result
+    }
+    
+    var collectedWorks: [String] {
+        var result = [String]()
+        
+        for work in selectedVolume.works {
+            result.append("\(work.issueNumber)\(work.variantLetter)")
+        }
+        
         return result
     }
 }
